@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package golang_grpc;
+
+option go_package = "pb";
+
+message User {
+    string name  = 1;
+    string email = 2;
+    uint64 birth_date = 3;
+}
+
+message UserResquest {
+    User user = 1;
+}
+
+message UserResponse {
+    uint64 age = 1;
+}
+
+service UserService {
+    rpc FnUser(UserResquest) returns (UserResponse);
+}
